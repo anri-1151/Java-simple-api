@@ -7,6 +7,7 @@ import com.ibsu.entities.Employee;
 import com.ibsu.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class EmployeeService {
         return this.employeeRepository.findOne(getEmployeeDTO.getEmployeeId());
     }
 
+    @Transactional
     public Employee addEmployee(AddEmployeeDTO addEmployeeDTO) {
         Long departmentId = addEmployeeDTO.getDepartmentId();
         Department department = null;

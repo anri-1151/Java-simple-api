@@ -6,6 +6,7 @@ import com.ibsu.entities.Department;
 import com.ibsu.repositories.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class DepartmentService {
         return this.departmentRepository.findAll();
     }
 
+    @Transactional
     public Department addDepartment(AddDepartmentDTO addDepartmentDTO) {
         Department department = new Department();
         department.setDepartmentName(addDepartmentDTO.getDepartmentName());
