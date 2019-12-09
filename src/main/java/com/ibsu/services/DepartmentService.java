@@ -28,7 +28,7 @@ public class DepartmentService {
     }
 
     public Department getOne(GetDepartmentDTO getDepartmentDTO) {
-        return this.departmentRepository.findOne(getDepartmentDTO.getDepartmentId());
+        return this.departmentRepository.findById(getDepartmentDTO.getDepartmentId()).orElse(null);
     }
 
     public Department getOne(Long departmentId) {

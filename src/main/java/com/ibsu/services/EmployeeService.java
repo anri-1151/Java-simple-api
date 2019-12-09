@@ -25,7 +25,7 @@ public class EmployeeService {
     }
 
     public Employee getSelectedEmployee(GetEmployeeDTO getEmployeeDTO) {
-        return this.employeeRepository.findOne(getEmployeeDTO.getEmployeeId());
+        return this.employeeRepository.findById(getEmployeeDTO.getEmployeeId()).orElse(null);
     }
 
     @Transactional
